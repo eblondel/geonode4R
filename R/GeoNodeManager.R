@@ -16,7 +16,7 @@
 #' 
 #' @examples
 #' \dontrun{
-#'    GeoNodeManager$new("http://localhost:8080/geonode", "admin", "geonode")
+#'    GeoNodeManager$new("http://localhost:8080", "user", "password")
 #' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
@@ -106,11 +106,11 @@ GeoNodeManager <- R6Class("GeoNodeManager",
        #baseUrl
        if(missing(url)) stop("Please provide the GeoNode base URL")
        baseUrl = url
-       if(!grepl("/rest", baseUrl)){
+       if(!grepl("/api", baseUrl)){
          if(grepl("/$", baseUrl)){
-           baseUrl = paste0(baseUrl, "rest")
+           baseUrl = paste0(baseUrl, "api")
          }else{
-           baseUrl = paste(baseUrl, "rest", sep = "/")
+           baseUrl = paste(baseUrl, "api", sep = "/")
          }
        }
        self$url = baseUrl

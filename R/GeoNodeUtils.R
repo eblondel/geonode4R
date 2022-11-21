@@ -58,13 +58,13 @@ GeoNodeUtils$getUserToken <- function(user, pwd){
 
 GeoNodeUtils$GET <- function(url, user, pwd, path = "", contentType = "text/xml", verbose = FALSE){
   if(verbose){
-    req <- with_verbose(GeoNodeUtils$GET(url, user, pwd, path))
+    req <- httr::with_verbose(GeoNodeUtils$GET(url, user, pwd, path))
   }else{
     if(!grepl("^/", path) && path != "") path = paste0("/", path)
     url <- paste0(url, path) 
     req <- httr::GET(
       url = url,
-      add_headers(
+      httr::add_headers(
         "User-Agent" = GeoNodeUtils$getUserAgent(),
         "Authorization" = paste("Basic", GeoNodeUtils$getUserToken(user, pwd)),
         "Content-Type" = contentType
@@ -78,7 +78,7 @@ GeoNodeUtils$PUT <- function(url, user, pwd, path,
                         content = NULL, filename = NULL,
                         contentType, verbose = FALSE){
   if(verbose){
-    req <- with_verbose(GeoNodeUtils$PUT(url, user, pwd, path, content, filename, contentType))
+    req <- httr::with_verbose(GeoNodeUtils$PUT(url, user, pwd, path, content, filename, contentType))
   }else{
     body <- NULL
     if(missing(content) | is.null(content)){
@@ -94,7 +94,7 @@ GeoNodeUtils$PUT <- function(url, user, pwd, path,
     url <- paste0(url, path)
     req <- httr::PUT(
       url = url,
-      add_headers(
+      httr::add_headers(
         "User-Agent" = GeoNodeUtils$getUserAgent(),
         "Authorization" = paste("Basic", GeoNodeUtils$getUserToken(user, pwd)),
         "Content-Type" = contentType
@@ -107,13 +107,13 @@ GeoNodeUtils$PUT <- function(url, user, pwd, path,
 
 GeoNodeUtils$POST <- function(url, user, pwd, path, content, contentType, verbose = FALSE){
   if(verbose){
-    req <- with_verbose(GeoNodeUtils$POST(url, user, pwd, path, content, contentType))
+    req <- httr::with_verbose(GeoNodeUtils$POST(url, user, pwd, path, content, contentType))
   }else{
     if(!grepl("^/", path)) path = paste0("/", path)
     url <- paste0(url, path)
     req <- httr::POST(
       url = url,
-      add_headers(
+      httr::add_headers(
         "User-Agent" = GeoNodeUtils$getUserAgent(),
         "Authorization" = paste("Basic", GeoNodeUtils$getUserToken(user, pwd)),
         "Content-Type" = contentType
@@ -126,13 +126,13 @@ GeoNodeUtils$POST <- function(url, user, pwd, path, content, contentType, verbos
 
 GeoNodeUtils$DELETE <- function(url, user, pwd, path, verbose = FALSE){
   if(verbose){
-    req <- with_verbose(GeoNodeUtils$DELETE(url, user, pwd, path))
+    req <- httr::with_verbose(GeoNodeUtils$DELETE(url, user, pwd, path))
   }else{
     if(!grepl("^/", path)) path = paste0("/", path)
     url <- paste0(url, path)
     req <- httr::DELETE(
       url = url,
-      add_headers(
+      httr::add_headers(
         "User-Agent" = GeoNodeUtils$getUserAgent(),
         "Authorization" = paste("Basic", GeoNodeUtils$getUserToken(user, pwd))
       )
