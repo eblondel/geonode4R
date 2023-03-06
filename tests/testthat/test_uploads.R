@@ -17,4 +17,9 @@ test_that("GeoNodeManager uploads a resource and deletes it",{
   expect_equal(created$status, "finished")
   expect_equal(created$crs$properties, "EPSG:4326")
   expect_true(created$success)
+
+  if(created$success){
+    deleted = geonode$delete(created$dataset)
+    expect_true(deleted)
+  }
 })

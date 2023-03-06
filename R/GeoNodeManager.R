@@ -187,9 +187,26 @@ GeoNodeManager <- R6Class("GeoNodeManager",
         return(out)
      },
      
-     #RESOURCEs
+     #RESOURCES
      #-------------------------------------------------------------------------------------------------------------
-     #TODO
+    
+     #'@description Deletes a resource
+     #'@param id resource (either a dataset or document) id
+     #'@return \code{TRUE} if deleted, \code{FALSE} otherwise
+     delete = function(id){
+        deleted = FALSE
+        req = GeoNodeUtils$DELETE(
+           url = self$getUrl(),
+           path = sprintf("v2/resources/%s/delete", id),
+           user = private$user,
+           pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user),
+           verbose = self$verbose.debug
+        )
+        if(httr::status_code(req)==200){
+           deleted <- TRUE
+        }
+        return(deleted)
+     },
      
      #DATASETS
      #-------------------------------------------------------------------------------------------------------------

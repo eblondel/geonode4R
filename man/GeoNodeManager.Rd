@@ -52,6 +52,7 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \item \href{#method-GeoNodeManager-getUrl}{\code{GeoNodeManager$getUrl()}}
 \item \href{#method-GeoNodeManager-connect}{\code{GeoNodeManager$connect()}}
 \item \href{#method-GeoNodeManager-getCategories}{\code{GeoNodeManager$getCategories()}}
+\item \href{#method-GeoNodeManager-delete}{\code{GeoNodeManager$delete()}}
 \item \href{#method-GeoNodeManager-getDataset}{\code{GeoNodeManager$getDataset()}}
 \item \href{#method-GeoNodeManager-upload}{\code{GeoNodeManager$upload()}}
 \item \href{#method-GeoNodeManager-clone}{\code{GeoNodeManager$clone()}}
@@ -204,6 +205,26 @@ Get categories
 }
 \subsection{Returns}{
 an object of class \link{list}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GeoNodeManager-delete"></a>}}
+\if{latex}{\out{\hypertarget{method-GeoNodeManager-delete}{}}}
+\subsection{Method \code{delete()}}{
+Deletes a resource
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GeoNodeManager$delete(id)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{id}}{resource (either a dataset or document) id}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if deleted, \code{FALSE} otherwise
 }
 }
 \if{html}{\out{<hr>}}
