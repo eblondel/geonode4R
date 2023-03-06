@@ -10,7 +10,7 @@ geonode <- try(GeoNodeManager$new(geonodeUrl, geonodeUsr, geonodePwd, geonodeLog
 
 
 if(is(geonode, "GeoNodeManager")){
-  cat(sprintf("GeoNode test instance started at %s. Running integration tests...\n", gsUrl))
+  cat(sprintf("GeoNode test instance started at %s. Running integration tests...\n", geonodeUrl))
   test_check("geonode4R")
 }else{
   cat("GeoNode test instance is not started. Skipping integration tests...\n")
