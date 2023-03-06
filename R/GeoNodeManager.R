@@ -157,6 +157,31 @@ GeoNodeManager <- R6Class("GeoNodeManager",
          self$INFO("Successfully connected to GeoNode!")
        }
        return(TRUE)
+     },
+     
+     #'@description Get categories
+     #'@param raw Controls the output. Default will return an object of class \link{data.frame}.
+     #'@return an object of class \link{list}
+     getCategories = function(raw = FALSE){
+        path <- "v2/categories"
+        req <- GeoNodeUtils$GET(
+           url = self$getUrl(),
+           user = private$user,
+           pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user), 
+           path = path,
+           verbose = self$verbose.debug
+        )
+        if(status_code(req) != 200){
+           err <- sprintf("Error while getting categories at '%s'", file.path(self$getUrl(), path))
+           self$ERROR(err)
+           stop(err)
+        }
+        resp <- httr::content(req)
+        out <- resp$categories
+        if(!raw){
+           out <- do.call("rbind", lapply(out, function(x){as.data.frame(x)}))
+        }
+        return(out)
      }
      
    )

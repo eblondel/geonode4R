@@ -18,7 +18,7 @@ GeoNode REST API Manager
 }
 \examples{
 \dontrun{
-   GeoNodeManager$new("http://localhost:8080/geonode", "admin", "geonode")
+   GeoNodeManager$new("http://localhost:8080", "user", "password")
 }
 
 }
@@ -51,6 +51,7 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \item \href{#method-GeoNodeManager-new}{\code{GeoNodeManager$new()}}
 \item \href{#method-GeoNodeManager-getUrl}{\code{GeoNodeManager$getUrl()}}
 \item \href{#method-GeoNodeManager-connect}{\code{GeoNodeManager$connect()}}
+\item \href{#method-GeoNodeManager-getCategories}{\code{GeoNodeManager$getCategories()}}
 \item \href{#method-GeoNodeManager-clone}{\code{GeoNodeManager$clone()}}
 }
 }
@@ -181,6 +182,26 @@ Connects to geoServer
 
 \subsection{Returns}{
 \code{TRUE} if connected, raises an error otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GeoNodeManager-getCategories"></a>}}
+\if{latex}{\out{\hypertarget{method-GeoNodeManager-getCategories}{}}}
+\subsection{Method \code{getCategories()}}{
+Get categories
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GeoNodeManager$getCategories(raw = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{raw}}{Controls the output. Default will return an object of class \link{data.frame}.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+an object of class \link{list}
 }
 }
 \if{html}{\out{<hr>}}
