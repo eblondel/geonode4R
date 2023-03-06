@@ -159,6 +159,9 @@ GeoNodeManager <- R6Class("GeoNodeManager",
        return(TRUE)
      },
      
+     #CATEGORIES
+     #-------------------------------------------------------------------------------------------------------------
+     
      #'@description Get categories
      #'@param raw Controls the output. Default will return an object of class \link{data.frame}.
      #'@return an object of class \link{list}
@@ -182,7 +185,49 @@ GeoNodeManager <- R6Class("GeoNodeManager",
            out <- do.call("rbind", lapply(out, function(x){as.data.frame(x)}))
         }
         return(out)
+     },
+
+     #UPLOADS
+     #-------------------------------------------------------------------------------------------------------------
+     
+     #'@description Uploads resource files
+     #'@param files files
+     #'@return an object of class \link{list} giving the upload status
+     upload = function(files){
+        
+        contentList <- lapply(files, httr::upload_file)
+        names(contentList) <- sapply(files, function(x){
+           prefix = unlist(strsplit(basename(x),"\\."))[2]
+           if(prefix %in% c("shp","csv","tif")) prefix = "base"
+           nm = paste0(prefix,"_file")
+           return(nm)
+         })
+        
+        req <- GeoNodeUtils$POST(
+           url = self$getUrl(),
+           path = "v2/uploads/upload",
+           user = private$user,
+           pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user),
+           content = contentList,
+           contentType = NULL,
+           verbose = self$verbose.debug
+        )
+        
+        if(httr::status_code(req)==500){
+           err <- sprintf("Error while uploading resources: %", req$errors[[1]])
+           self$ERROR(err)
+           stop(err)
+        }
+        
+        out <- NULL
+        if(httr::status_code(req)==200){
+           out <- httr::content(req)
+        }
+        
+        return(out)
+        
      }
+
      
    )
    

@@ -52,6 +52,7 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \item \href{#method-GeoNodeManager-getUrl}{\code{GeoNodeManager$getUrl()}}
 \item \href{#method-GeoNodeManager-connect}{\code{GeoNodeManager$connect()}}
 \item \href{#method-GeoNodeManager-getCategories}{\code{GeoNodeManager$getCategories()}}
+\item \href{#method-GeoNodeManager-upload}{\code{GeoNodeManager$upload()}}
 \item \href{#method-GeoNodeManager-clone}{\code{GeoNodeManager$clone()}}
 }
 }
@@ -202,6 +203,26 @@ Get categories
 }
 \subsection{Returns}{
 an object of class \link{list}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GeoNodeManager-upload"></a>}}
+\if{latex}{\out{\hypertarget{method-GeoNodeManager-upload}{}}}
+\subsection{Method \code{upload()}}{
+Uploads resource files
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GeoNodeManager$upload(files)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{files}}{files}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+an object of class \link{list} giving the upload status
 }
 }
 \if{html}{\out{<hr>}}
