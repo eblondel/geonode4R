@@ -186,7 +186,36 @@ GeoNodeManager <- R6Class("GeoNodeManager",
         }
         return(out)
      },
-
+     
+     #RESOURCEs
+     #-------------------------------------------------------------------------------------------------------------
+     #TODO
+     
+     #DATASETS
+     #-------------------------------------------------------------------------------------------------------------
+     
+     #'@description Get dataset standardized metadata
+     #'@param id id
+     #'@return an object of class \link{list}
+     getDataset = function(id){
+        req = GeoNodeUtils$GET(
+           url = self$getUrl(),
+           user = private$user,
+           pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user),
+           path = sprintf("v2/datasets/%s", id),
+           verbose = self$verbose.debug
+        )
+        out <- httr::content(req)
+        if(httr::status_code(req)==200){
+           out <- out$dataset
+        }
+        return(out)
+     },
+     
+     #DOCUMENTS
+     #-------------------------------------------------------------------------------------------------------------
+     #TODOS
+     
      #UPLOADS
      #-------------------------------------------------------------------------------------------------------------
      

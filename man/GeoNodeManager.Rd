@@ -52,6 +52,7 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \item \href{#method-GeoNodeManager-getUrl}{\code{GeoNodeManager$getUrl()}}
 \item \href{#method-GeoNodeManager-connect}{\code{GeoNodeManager$connect()}}
 \item \href{#method-GeoNodeManager-getCategories}{\code{GeoNodeManager$getCategories()}}
+\item \href{#method-GeoNodeManager-getDataset}{\code{GeoNodeManager$getDataset()}}
 \item \href{#method-GeoNodeManager-upload}{\code{GeoNodeManager$upload()}}
 \item \href{#method-GeoNodeManager-clone}{\code{GeoNodeManager$clone()}}
 }
@@ -198,6 +199,26 @@ Get categories
 \if{html}{\out{<div class="arguments">}}
 \describe{
 \item{\code{raw}}{Controls the output. Default will return an object of class \link{data.frame}.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+an object of class \link{list}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GeoNodeManager-getDataset"></a>}}
+\if{latex}{\out{\hypertarget{method-GeoNodeManager-getDataset}{}}}
+\subsection{Method \code{getDataset()}}{
+Get dataset standardized metadata
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GeoNodeManager$getDataset(id)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{id}}{id}
 }
 \if{html}{\out{</div>}}
 }
