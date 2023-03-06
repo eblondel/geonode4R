@@ -9,7 +9,7 @@ geonodeLogger <- Sys.getenv("GEONODE_LOGGER")
 GEONODE <- try(GeoNodeManager$new(geonodeUrl, geonodeUsr, geonodePwd, geonodeLogger))
 
 
-if(is(geonode, "GeoNodeManager")){
+if(is(GEONODE, "GeoNodeManager")){
   cat(sprintf("GeoNode test instance started at %s. Running integration tests...\n", geonodeUrl))
   test_check("geonode4R")
 }else{
