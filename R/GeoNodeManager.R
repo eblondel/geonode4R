@@ -89,6 +89,7 @@ GeoNodeManager <- R6Class("GeoNodeManager",
        
        #logger
        if(!missing(logger)){
+         if(!is.null(logger)) if(logger == "") logger = NULL
          if(!is.null(logger)){
            self$loggerType <- toupper(logger)
            if(!(self$loggerType %in% c("INFO","DEBUG"))){
@@ -108,9 +109,9 @@ GeoNodeManager <- R6Class("GeoNodeManager",
        baseUrl = url
        if(!grepl("/api", baseUrl)){
          if(grepl("/$", baseUrl)){
-           baseUrl = paste0(baseUrl, "api")
+           baseUrl = paste0(baseUrl, "api/v2",)
          }else{
-           baseUrl = paste(baseUrl, "api", sep = "/")
+           baseUrl = paste(baseUrl, "api", "v2", sep = "/")
          }
        }
        self$url = baseUrl
@@ -136,7 +137,7 @@ GeoNodeManager <- R6Class("GeoNodeManager",
          url = self$getUrl(), 
          user = private$user, 
          pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user), 
-         path = "",
+         path = "/",
          verbose = self$verbose.debug
        )
        if(status_code(req) == 401){
@@ -166,7 +167,7 @@ GeoNodeManager <- R6Class("GeoNodeManager",
      #'@param raw Controls the output. Default will return an object of class \link{data.frame}.
      #'@return an object of class \link{list}
      getCategories = function(raw = FALSE){
-        path <- "v2/categories"
+        path <- "categories"
         req <- GeoNodeUtils$GET(
            url = self$getUrl(),
            user = private$user,
@@ -176,6 +177,32 @@ GeoNodeManager <- R6Class("GeoNodeManager",
         )
         if(status_code(req) != 200){
            err <- sprintf("Error while getting categories at '%s'", file.path(self$getUrl(), path))
+           self$ERROR(err)
+           stop(err)
+        }
+        resp <- httr::content(req)
+        out <- resp$categories
+        if(!raw){
+           out <- do.call("rbind", lapply(out, function(x){as.data.frame(x)}))
+        }
+        return(out)
+     },
+     
+     #'@description Get category
+     #'@param id category id
+     #'@param raw Controls the output. Default will return an object of class \link{data.frame}.
+     #'@return an object of class \link{list}
+     getCategory = function(id, raw = FALSE){
+        path <- sprintf("categories/%s", id)
+        req <- GeoNodeUtils$GET(
+           url = self$getUrl(),
+           user = private$user,
+           pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user), 
+           path = path,
+           verbose = self$verbose.debug
+        )
+        if(status_code(req) != 200){
+           err <- sprintf("Error while getting category at '%s'", file.path(self$getUrl(), path))
            self$ERROR(err)
            stop(err)
         }
@@ -198,7 +225,7 @@ GeoNodeManager <- R6Class("GeoNodeManager",
            url = self$getUrl(),
            user = private$user,
            pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user),
-           path = sprintf("v2/resources/%s", id),
+           path = sprintf("resources/%s", id),
            verbose = self$verbose.debug
         )
         out <- httr::content(req)
@@ -215,7 +242,7 @@ GeoNodeManager <- R6Class("GeoNodeManager",
         deleted = FALSE
         req = GeoNodeUtils$DELETE(
            url = self$getUrl(),
-           path = sprintf("v2/resources/%s/delete", id),
+           path = sprintf("resources/%s/delete", id),
            user = private$user,
            pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user),
            verbose = self$verbose.debug
@@ -244,7 +271,7 @@ GeoNodeManager <- R6Class("GeoNodeManager",
         
         req <- GeoNodeUtils$POST(
            url = self$getUrl(),
-           path = "v2/uploads/upload",
+           path = "uploads/upload",
            user = private$user,
            pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user),
            content = contentList,
@@ -278,7 +305,7 @@ GeoNodeManager <- R6Class("GeoNodeManager",
            url = self$getUrl(),
            user = private$user,
            pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user),
-           path = sprintf("v2/datasets/%s/metadata", id),
+           path = sprintf("datasets/%s/metadata", id),
            content = file_content, contentType = NULL,
            verbose = self$verbose.debug
         )
@@ -305,7 +332,7 @@ GeoNodeManager <- R6Class("GeoNodeManager",
            url = self$getUrl(),
            user = private$user,
            pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user),
-           path = sprintf("v2/datasets/%s", id),
+           path = sprintf("datasets/%s", id),
            verbose = self$verbose.debug
         )
         out <- httr::content(req)

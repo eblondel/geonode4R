@@ -52,9 +52,11 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \item \href{#method-GeoNodeManager-getUrl}{\code{GeoNodeManager$getUrl()}}
 \item \href{#method-GeoNodeManager-connect}{\code{GeoNodeManager$connect()}}
 \item \href{#method-GeoNodeManager-getCategories}{\code{GeoNodeManager$getCategories()}}
+\item \href{#method-GeoNodeManager-getCategory}{\code{GeoNodeManager$getCategory()}}
 \item \href{#method-GeoNodeManager-getResource}{\code{GeoNodeManager$getResource()}}
 \item \href{#method-GeoNodeManager-deleteResource}{\code{GeoNodeManager$deleteResource()}}
 \item \href{#method-GeoNodeManager-upload}{\code{GeoNodeManager$upload()}}
+\item \href{#method-GeoNodeManager-uploadMetadata}{\code{GeoNodeManager$uploadMetadata()}}
 \item \href{#method-GeoNodeManager-getDataset}{\code{GeoNodeManager$getDataset()}}
 \item \href{#method-GeoNodeManager-clone}{\code{GeoNodeManager$clone()}}
 }
@@ -209,6 +211,28 @@ an object of class \link{list}
 }
 }
 \if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GeoNodeManager-getCategory"></a>}}
+\if{latex}{\out{\hypertarget{method-GeoNodeManager-getCategory}{}}}
+\subsection{Method \code{getCategory()}}{
+Get category
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GeoNodeManager$getCategory(id, raw = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{id}}{category id}
+
+\item{\code{raw}}{Controls the output. Default will return an object of class \link{data.frame}.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+an object of class \link{list}
+}
+}
+\if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GeoNodeManager-getResource"></a>}}
 \if{latex}{\out{\hypertarget{method-GeoNodeManager-getResource}{}}}
 \subsection{Method \code{getResource()}}{
@@ -266,6 +290,28 @@ Uploads resource files
 }
 \subsection{Returns}{
 an object of class \link{list} giving the upload status
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GeoNodeManager-uploadMetadata"></a>}}
+\if{latex}{\out{\hypertarget{method-GeoNodeManager-uploadMetadata}{}}}
+\subsection{Method \code{uploadMetadata()}}{
+Uploads ISO 19115 dataset metadata
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GeoNodeManager$uploadMetadata(id, file)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{id}}{dataset id}
+
+\item{\code{file}}{a metadata XML file following ISO 19115 specification}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+an object
 }
 }
 \if{html}{\out{<hr>}}
