@@ -52,9 +52,10 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \item \href{#method-GeoNodeManager-getUrl}{\code{GeoNodeManager$getUrl()}}
 \item \href{#method-GeoNodeManager-connect}{\code{GeoNodeManager$connect()}}
 \item \href{#method-GeoNodeManager-getCategories}{\code{GeoNodeManager$getCategories()}}
-\item \href{#method-GeoNodeManager-delete}{\code{GeoNodeManager$delete()}}
-\item \href{#method-GeoNodeManager-getDataset}{\code{GeoNodeManager$getDataset()}}
+\item \href{#method-GeoNodeManager-getResource}{\code{GeoNodeManager$getResource()}}
+\item \href{#method-GeoNodeManager-deleteResource}{\code{GeoNodeManager$deleteResource()}}
 \item \href{#method-GeoNodeManager-upload}{\code{GeoNodeManager$upload()}}
+\item \href{#method-GeoNodeManager-getDataset}{\code{GeoNodeManager$getDataset()}}
 \item \href{#method-GeoNodeManager-clone}{\code{GeoNodeManager$clone()}}
 }
 }
@@ -208,12 +209,32 @@ an object of class \link{list}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GeoNodeManager-delete"></a>}}
-\if{latex}{\out{\hypertarget{method-GeoNodeManager-delete}{}}}
-\subsection{Method \code{delete()}}{
+\if{html}{\out{<a id="method-GeoNodeManager-getResource"></a>}}
+\if{latex}{\out{\hypertarget{method-GeoNodeManager-getResource}{}}}
+\subsection{Method \code{getResource()}}{
+Get resource
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GeoNodeManager$getResource(id)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{id}}{resource id}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+an object of class \link{list}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GeoNodeManager-deleteResource"></a>}}
+\if{latex}{\out{\hypertarget{method-GeoNodeManager-deleteResource}{}}}
+\subsection{Method \code{deleteResource()}}{
 Deletes a resource
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GeoNodeManager$delete(id)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{GeoNodeManager$deleteResource(id)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -225,26 +246,6 @@ Deletes a resource
 }
 \subsection{Returns}{
 \code{TRUE} if deleted, \code{FALSE} otherwise
-}
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GeoNodeManager-getDataset"></a>}}
-\if{latex}{\out{\hypertarget{method-GeoNodeManager-getDataset}{}}}
-\subsection{Method \code{getDataset()}}{
-Get dataset standardized metadata
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GeoNodeManager$getDataset(id)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{id}}{id}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-an object of class \link{list}
 }
 }
 \if{html}{\out{<hr>}}
@@ -265,6 +266,26 @@ Uploads resource files
 }
 \subsection{Returns}{
 an object of class \link{list} giving the upload status
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GeoNodeManager-getDataset"></a>}}
+\if{latex}{\out{\hypertarget{method-GeoNodeManager-getDataset}{}}}
+\subsection{Method \code{getDataset()}}{
+Get dataset standardized metadata
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GeoNodeManager$getDataset(id)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{id}}{dataset id}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+an object of class \link{list}
 }
 }
 \if{html}{\out{<hr>}}

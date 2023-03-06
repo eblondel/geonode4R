@@ -190,6 +190,24 @@ GeoNodeManager <- R6Class("GeoNodeManager",
      #RESOURCES
      #-------------------------------------------------------------------------------------------------------------
     
+     #'@description Get resource
+     #'@param id resource id
+     #'@return an object of class \link{list}
+     getResource = function(id){
+        req = GeoNodeUtils$GET(
+           url = self$getUrl(),
+           user = private$user,
+           pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user),
+           path = sprintf("v2/resources/%s", id),
+           verbose = self$verbose.debug
+        )
+        out <- httr::content(req)
+        if(httr::status_code(req)==200){
+           out <- out$resource
+        }
+        return(out)
+     },
+     
      #'@description Deletes a resource
      #'@param id resource (either a dataset or document) id
      #'@return \code{TRUE} if deleted, \code{FALSE} otherwise
@@ -254,7 +272,7 @@ GeoNodeManager <- R6Class("GeoNodeManager",
      #-------------------------------------------------------------------------------------------------------------
      
      #'@description Get dataset standardized metadata
-     #'@param id id
+     #'@param id dataset id
      #'@return an object of class \link{list}
      getDataset = function(id){
         req = GeoNodeUtils$GET(
@@ -269,7 +287,7 @@ GeoNodeManager <- R6Class("GeoNodeManager",
            out <- out$dataset
         }
         return(out)
-     },
+     }
      
      #DOCUMENTS
      #-------------------------------------------------------------------------------------------------------------
