@@ -19,7 +19,7 @@ test_that("GeoNodeManager uploads a resource and deletes it",{
   expect_true(created$success)
 
   if(created$success){
-    deleted = geonode$delete(created$dataset)
+    deleted = geonode$deleteResource(created$dataset)
     expect_true(deleted)
   }
 })
