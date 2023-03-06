@@ -268,6 +268,32 @@ GeoNodeManager <- R6Class("GeoNodeManager",
         
      },
      
+     #'@description Uploads ISO 19115 dataset metadata
+     #'@param id dataset id
+     #'@param file a metadata XML file following ISO 19115 specification
+     #'@return an object
+     uploadMetadata = function(id, file){
+        file_content <- list(metadata_file = httr::upload_file(file))
+        req <- GeoNodeUtils$PUT(
+           url = self$getUrl(),
+           user = private$user,
+           pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user),
+           path = sprintf("v2/datasets/%s/metadata", id),
+           content = file_content, contentType = NULL,
+           verbose = self$verbose.debug
+        )
+        if(httr::status_code(req)==404){
+           err <- "Ups, it seems your GeoNode version does not support yet the dataset metadata upload"
+           self$ERROR(err)
+           stop(err)
+        }
+        out <- FALSE
+        if(httr::status_code(req)==200){
+           out <- TRUE
+        }
+        return(out)
+     },
+     
      #DATASETS
      #-------------------------------------------------------------------------------------------------------------
      

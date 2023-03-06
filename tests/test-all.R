@@ -6,7 +6,7 @@ geonodeUrl <- "https://stable.demo.geonode.org"
 geonodeUsr <- Sys.getenv("GEONODE_USER")
 geonodePwd <- Sys.getenv("GEONODE_PASSWORD")
 geonodeLogger <- Sys.getenv("GEONODE_LOGGER")
-geonode <- try(GeoNodeManager$new(geonodeUrl, geonodeUsr, geonodePwd, geonodeLogger))
+GEONODE <- try(GeoNodeManager$new(geonodeUrl, geonodeUsr, geonodePwd, geonodeLogger))
 
 
 if(is(geonode, "GeoNodeManager")){

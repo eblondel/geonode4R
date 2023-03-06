@@ -10,6 +10,6 @@ context("GeoNodeManager")
 
 test_that("connect",{
   
-  expect_is(geonode, "GeoNodeManager")
+  expect_is(GEONODE, "GeoNodeManager")
   
 })
