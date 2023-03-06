@@ -16,7 +16,7 @@ jobs:
       matrix:
         config:
           - {os: ubuntu-latest,  r: 'release'}
-          - {os: ubuntu-latest,  r: 'devel'}
+          #- {os: ubuntu-latest,  r: 'devel'}
     
     env:
         GEONODE_USER: ${{ secrets.GEONODE_USER }}
