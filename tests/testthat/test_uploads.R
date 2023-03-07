@@ -20,6 +20,7 @@ test_that("GeoNodeManager uploads a resource and deletes it",{
     #getResource
     resource = GEONODE$getResource(created$dataset)
     expect_is(resource, "list")
+    expect_true(length(names(resource))>1)
     #getDataset
     dataset = GEONODE$getDataset(created$dataset)
     expect_is(dataset, "list")
