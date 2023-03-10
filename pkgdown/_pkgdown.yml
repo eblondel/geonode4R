@@ -1,0 +1,8 @@
+url: "https://eblondel.github.io/geonode4R/"
+
+home:
+  title: Interface to 'GeoNode' REST API
+
+template:
+  bootstrap: 5
+  
