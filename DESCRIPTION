@@ -1,12 +1,12 @@
 Package: geonode4R
 Type: Package
-Title: GeoNode REST API R Interface
+Title: Interface to 'GeoNode' REST API
 Version: 0.1
-Date: 2023-03-07
+Date: 2023-03-10
 Authors@R: c(person("Emmanuel", "Blondel", role = c("aut", "cre"), email = "emmanuel.blondel1@gmail.com", comment = c(ORCID = "0000-0002-5870-5762")))
 Maintainer: Emmanuel Blondel <emmanuel.blondel1@gmail.com>
-Description: Provides an R interface to the GeoNode API, allowing to upload and publish metadata and data in GeoNode. 
-  For more information about the GeoNode API, see <https://docs.geonode.org/en/master/devel/api/V2/index.html>.
+Description: Provides an interface to the 'GeoNode' API, allowing to upload and publish metadata and data in 'GeoNode'. 
+  For more information about the GeoNode API, see <https://geonode.org/>.
 Depends: R (>= 3.1.0)
 Imports: R6, openssl, httr, XML, keyring, readr
 Suggests: testthat, roxygen2, covr, shiny, knitr, markdown
