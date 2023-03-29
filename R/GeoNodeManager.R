@@ -119,6 +119,8 @@ GeoNodeManager <- R6Class("GeoNodeManager",
        private$keyring_backend$set_with_value(private$keyring_service, username = user, password = pwd)
 
        self$connect()
+       
+       self$version <- GeoNodeVersion$new(baseUrl, user, pwd)
         
        invisible(self)
        

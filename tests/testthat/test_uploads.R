@@ -10,6 +10,7 @@ context("GeoNodeManager-uploads")
 
 test_that("GeoNodeManager uploads a resource and deletes it",{
   files = list.files(system.file("extdata/samples", package = "geonode4R"), pattern = "shapefile1", full.names = T)
+  #files = files[!endsWith(files, ".xml")]
   created = GEONODE$upload(files)
   expect_is(created, "list")
   expect_equal(created$status, "finished")

@@ -2,6 +2,7 @@
 
 export(GeoNodeManager)
 export(GeoNodeUtils)
+export(GeoNodeVersion)
 import(XML)
 import(httr)
 import(keyring)

@@ -2,7 +2,7 @@ library(testthat)
 library(geonode4R)
 
 #test environment
-geonodeUrl <- "https://master.demo.geonode.org"
+geonodeUrl <- "https://stable.demo.geonode.org"
 geonodeUsr <- Sys.getenv("GEONODE_USER")
 geonodePwd <- Sys.getenv("GEONODE_PASSWORD")
 geonodeLogger <- Sys.getenv("GEONODE_LOGGER")
