@@ -109,7 +109,7 @@ GeoNodeManager <- R6Class("GeoNodeManager",
        baseUrl = url
        if(!grepl("/api", baseUrl)){
          if(grepl("/$", baseUrl)){
-           baseUrl = paste0(baseUrl, "api/v2",)
+           baseUrl = paste0(baseUrl, "api/v2")
          }else{
            baseUrl = paste(baseUrl, "api", "v2", sep = "/")
          }
