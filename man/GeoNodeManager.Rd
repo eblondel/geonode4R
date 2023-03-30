@@ -53,6 +53,7 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \item \href{#method-GeoNodeManager-connect}{\code{GeoNodeManager$connect()}}
 \item \href{#method-GeoNodeManager-getCategories}{\code{GeoNodeManager$getCategories()}}
 \item \href{#method-GeoNodeManager-getCategory}{\code{GeoNodeManager$getCategory()}}
+\item \href{#method-GeoNodeManager-getResourceByUUID}{\code{GeoNodeManager$getResourceByUUID()}}
 \item \href{#method-GeoNodeManager-getResource}{\code{GeoNodeManager$getResource()}}
 \item \href{#method-GeoNodeManager-deleteResource}{\code{GeoNodeManager$deleteResource()}}
 \item \href{#method-GeoNodeManager-upload}{\code{GeoNodeManager$upload()}}
@@ -225,6 +226,26 @@ Get category
 \item{\code{id}}{category id}
 
 \item{\code{raw}}{Controls the output. Default will return an object of class \link{data.frame}.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+an object of class \link{list}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GeoNodeManager-getResourceByUUID"></a>}}
+\if{latex}{\out{\hypertarget{method-GeoNodeManager-getResourceByUUID}{}}}
+\subsection{Method \code{getResourceByUUID()}}{
+Get resource by UUID
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GeoNodeManager$getResourceByUUID(uuid)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{uuid}}{resource uuid (or semantic id if used in place of uuid)}
 }
 \if{html}{\out{</div>}}
 }

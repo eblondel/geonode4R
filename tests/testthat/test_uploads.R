@@ -22,6 +22,9 @@ test_that("GeoNodeManager uploads a resource and deletes it",{
     resource = GEONODE$getResource(created$dataset)
     expect_is(resource, "list")
     expect_true(length(names(resource))>1)
+    #getResourceByUUID
+    resource_by_uuid = GEONODE$getResourceByUUID(resource$uuid)
+    expect_equal(resource$pk, resource_by_uuid$pk)
     #getDataset
     dataset = GEONODE$getDataset(created$dataset)
     expect_is(dataset, "list")

@@ -219,6 +219,23 @@ GeoNodeManager <- R6Class("GeoNodeManager",
      #RESOURCES
      #-------------------------------------------------------------------------------------------------------------
     
+     #'@description Get resource by UUID
+     #'@param uuid resource uuid (or semantic id if used in place of uuid)
+     #'@return an object of class \link{list}
+     getResourceByUUID = function(uuid){
+       out <- NULL
+       req = GeoNodeUtils$GET(
+         url = self$getUrl(),
+         user = private$user,
+         pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user),
+         path = sprintf("resources?page_size=1&page=1&filter{uuid.icontains}=%s", uuid),
+         verbose = self$verbose.debug
+       )
+       outreq <- httr::content(req)
+       if(length(outreq$resources)>0) out <- outreq$resources[[1]]
+       return(out)
+     },
+          
      #'@description Get resource
      #'@param id resource id
      #'@return an object of class \link{list}
