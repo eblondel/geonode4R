@@ -305,7 +305,7 @@ GeoNodeManager <- R6Class("GeoNodeManager",
         }
         
         out <- NULL
-        if(httr::status_code(req)==200){
+        if(httr::status_code(req)==201){
            out <- httr::content(req)
            out$dataset <- as.integer(basename(out$url))
         }
@@ -334,7 +334,7 @@ GeoNodeManager <- R6Class("GeoNodeManager",
            stop(err)
         }
         out <- FALSE
-        if(httr::status_code(req)==200){
+        if(httr::status_code(req)==201){
            out <- TRUE
         }
         return(out)
