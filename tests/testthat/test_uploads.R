@@ -14,10 +14,12 @@ test_that("GeoNodeManager uploads a resource and deletes it",{
   created = GEONODE$upload(files)
   expect_is(created, "list")
   expect_equal(created$status, "finished")
-  expect_equal(created$crs$properties, "EPSG:4326")
-  expect_true(created$success)
+  
+  #TODO check these properties are not in async mode
+  #expect_equal(created$crs$properties, "EPSG:4326")
+  #expect_true(created$success)
 
-  if(created$success){
+  if(!is.null(created$dataset)){
     #getResource
     resource = GEONODE$getResource(created$dataset)
     expect_is(resource, "list")

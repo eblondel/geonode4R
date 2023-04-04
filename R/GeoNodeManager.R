@@ -162,6 +162,28 @@ GeoNodeManager <- R6Class("GeoNodeManager",
        return(TRUE)
      },
      
+     #'@description Get execution status
+     #'@param execution_id the execution id
+     #'@return
+     getExecutionStatus = function(execution_id){
+       path = sprintf("resource-service/execution-status/%s", execution_id)
+       req <- GeoNodeUtils$GET(
+         url = self$getUrl(),
+         user = private$user,
+         pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user), 
+         path = path,
+         verbose = self$verbose.debug
+       )
+       if(status_code(req) != 200){
+         err <- sprintf("Error while getting categories at '%s'", file.path(self$getUrl(), path))
+         self$ERROR(err)
+         stop(err)
+       }
+       resp <- httr::content(req)
+       out <- resp
+       return(out)
+     },
+     
      #CATEGORIES
      #-------------------------------------------------------------------------------------------------------------
      
@@ -305,11 +327,23 @@ GeoNodeManager <- R6Class("GeoNodeManager",
         }
         
         out <- NULL
-        if(httr::status_code(req)==201){
+        if(httr::status_code(req) %in% c(200,201)){
            out <- httr::content(req)
-           out$dataset <- as.integer(basename(out$url))
+           async <- "execution_id" %in% names(out)
+           if(async){
+             exec <- self$getExecutionStatus(execution_id = out$execution_id)
+             finished = !is.null(exec$finished)
+             while(!finished){
+               Sys.sleep(time = 1)
+               exec <- self$getExecutionStatus(execution_id = out$execution_id)
+               finished = !is.null(exec$finished)
+             }
+             out <- exec
+             out$dataset <- as.integer(basename(exec$output_params$detail_url[[1]]))
+           }else{
+             out$dataset <- as.integer(basename(out$url))
+           }
         }
-        
         return(out)
         
      },
@@ -334,7 +368,7 @@ GeoNodeManager <- R6Class("GeoNodeManager",
            stop(err)
         }
         out <- FALSE
-        if(httr::status_code(req)==201){
+        if(httr::status_code(req) %in% c(200,201)){
            out <- TRUE
         }
         return(out)
