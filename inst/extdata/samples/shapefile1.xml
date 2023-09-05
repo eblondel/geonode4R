@@ -1,6 +1,6 @@
 <gmd:MD_Metadata xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gfc="http://www.isotc211.org/2005/gfc" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gmi="http://www.isotc211.org/2005/gmi" xmlns:gmx="http://www.isotc211.org/2005/gmx" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:srv="http://www.isotc211.org/2005/srv" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gmlcov="http://www.opengis.net/gmlcov/1.0" xmlns:gmlrgrid="http://www.opengis.net/gml/3.3/rgrid" xmlns:swe="http://www.opengis.net/swe/2.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <gmd:fileIdentifier>
-    <gco:CharacterString>shapefile1</gco:CharacterString>
+    <gco:CharacterString>my_shapefile1_metadata_semantic_identifier</gco:CharacterString>
   </gmd:fileIdentifier>
   <gmd:language>
     <gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/" codeListValue="eng" codeSpace="ISO 639-2">English</gmd:LanguageCode>
