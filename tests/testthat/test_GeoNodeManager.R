@@ -11,5 +11,5 @@ context("GeoNodeManager")
 test_that("connect",{
   expect_is(GEONODE, "GeoNodeManager")
   expect_is(GEONODE$version, "GeoNodeVersion")
-  expect_equal(GEONODE$version$version, "4.0.2")
+  expect_equal(GEONODE$version$version, "4.2.0.dev0")
 })
