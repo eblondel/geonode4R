@@ -13,6 +13,7 @@ Suggests: testthat, roxygen2, covr, shiny, knitr, markdown
 License: MIT + file LICENSE
 URL: https://github.com/eblondel/geonode4R, https://eblondel.github.io/geonode4R/, https://geonode.org/
 BugReports: https://github.com/eblondel/geonode4R/issues
+Encoding: UTF-8
 LazyLoad: yes
 RoxygenNote: 7.3.1
 VignetteBuilder: knitr
