@@ -3,7 +3,6 @@
 export(GeoNodeManager)
 export(GeoNodeUtils)
 export(GeoNodeVersion)
-import(XML)
 import(httr)
 import(keyring)
 importFrom(R6,R6Class)

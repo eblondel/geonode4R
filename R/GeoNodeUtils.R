@@ -32,15 +32,6 @@
 #'    This method performs a DELETE request for a given GeoServer resource identified
 #'    by a \code{path} in GeoNode REST API
 #'  }
-#'  \item{\code{parseResponseXML(req)}}{
-#'    Convenience method to parse XML response from GeoNode REST API. Although package \pkg{httr}
-#'    suggests the use of \pkg{xml2} package for handling XML, \pkg{geonode4R} still relies
-#'    on the package \pkg{XML}. Response from \pkg{httr} is retrieved as text, and then parsed as
-#'    XML using \code{xmlParse} function.
-#'  }
-#'  \item{\code{getPayloadXML(obj)}}{
-#'    Convenience method to create payload XML to send to GeoNode
-#'  }
 #' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
@@ -139,18 +130,4 @@ GeoNodeUtils$DELETE <- function(url, user, pwd, path, verbose = FALSE){
     )
   }
   return(req)
-}
-
-GeoNodeUtils$parseResponseXML <- function(req){
-  return(xmlParse(content(req, as = "text", encoding = "UTF-8")))
-}
-
-GeoNodeUtils$getPayloadXML <- function(obj){
-  if(!("encode" %in% names(obj))){
-    stop("R6 class with no XML encoder method!")
-  }
-  xml <- obj$encode()
-  xmltext <- as(xml, "character")
-  payload <- gsub("[\r\n ] ", "", xmltext)
-  return(payload)
 }

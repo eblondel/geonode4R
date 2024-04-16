@@ -4,7 +4,6 @@
 #' @importFrom R6 R6Class
 #' @importFrom openssl base64_encode
 #' @import httr
-#' @import XML
 #' @import keyring
 #' @importFrom readr read_csv
 #' @importFrom readr write_csv

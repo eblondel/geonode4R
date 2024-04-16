@@ -42,15 +42,6 @@ GeoNode REST API Manager Utils
    This method performs a DELETE request for a given GeoServer resource identified
    by a \code{path} in GeoNode REST API
  }
- \item{\code{parseResponseXML(req)}}{
-   Convenience method to parse XML response from GeoNode REST API. Although package \pkg{httr}
-   suggests the use of \pkg{xml2} package for handling XML, \pkg{geonode4R} still relies
-   on the package \pkg{XML}. Response from \pkg{httr} is retrieved as text, and then parsed as
-   XML using \code{xmlParse} function.
- }
- \item{\code{getPayloadXML(obj)}}{
-   Convenience method to create payload XML to send to GeoNode
- }
 }
 }
 
