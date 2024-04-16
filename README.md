@@ -2,8 +2,6 @@
 ===========
 
 [![Build Status](https://github.com/eblondel/geonode4R/actions/workflows/r-cmd-check.yml/badge.svg?branch=main)](https://github.com/eblondel/geonode4R/actions/workflows/r-cmd-check.yml)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/geonode4R)](https://cran.r-project.org/package=geonode4R)
-[![cran checks](https://badges.cranchecks.info/worst/geonode4R.svg)](https://cran.r-project.org/web/checks/check_results_geonode4R.html)
 [![Github_Status_Badge](https://img.shields.io/badge/Github-0.1-blue.svg)](https://github.com/eblondel/geonode4R)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7703117.svg)](https://doi.org/10.5281/zenodo.7703117)
 
