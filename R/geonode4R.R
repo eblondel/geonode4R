@@ -1,7 +1,8 @@
 #' @name geonode4R
 #' @aliases geonode4R-package
 #' @aliases geonode4R
-#' @docType package
+#' @keywords internal 
+"_PACKAGE"
 #' 
 #' @title GeoNode REST API R Interface
 #' @description Provides an R interface to the GeoNode API, allowing to 
@@ -10,4 +11,3 @@
 #' 
 #'@author Emmanuel Blondel \email{emmanuel.blondel1@@gmail.com}
 #'
-NULL

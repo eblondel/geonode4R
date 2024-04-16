@@ -4,12 +4,22 @@
 \name{geonode4R}
 \alias{geonode4R}
 \alias{geonode4R-package}
-\title{GeoNode REST API R Interface}
+\title{geonode4R: Interface to 'GeoNode' REST API}
 \description{
-Provides an R interface to the GeoNode API, allowing to 
-upload and publish metadata and data in GeoNode. For more information 
-about the GeoNode API, see <https://docs.geonode.org/en/master/devel/api/V2/index.html>
+Provides an interface to the 'GeoNode' API, allowing to upload and publish metadata and data in 'GeoNode'. For more information about the GeoNode API, see \url{https://geonode.org/}.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/eblondel/geonode4R}
+  \item \url{https://eblondel.github.io/geonode4R/}
+  \item \url{https://geonode.org/}
+  \item Report bugs at \url{https://github.com/eblondel/geonode4R/issues}
+}
+
 }
 \author{
-Emmanuel Blondel \email{emmanuel.blondel1@gmail.com}
+\strong{Maintainer}: Emmanuel Blondel \email{emmanuel.blondel1@gmail.com} (\href{https://orcid.org/0000-0002-5870-5762}{ORCID})
+
 }
+\keyword{internal}

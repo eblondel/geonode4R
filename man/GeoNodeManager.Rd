@@ -51,9 +51,11 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \item \href{#method-GeoNodeManager-new}{\code{GeoNodeManager$new()}}
 \item \href{#method-GeoNodeManager-getUrl}{\code{GeoNodeManager$getUrl()}}
 \item \href{#method-GeoNodeManager-connect}{\code{GeoNodeManager$connect()}}
+\item \href{#method-GeoNodeManager-getExecutionStatus}{\code{GeoNodeManager$getExecutionStatus()}}
 \item \href{#method-GeoNodeManager-getCategories}{\code{GeoNodeManager$getCategories()}}
 \item \href{#method-GeoNodeManager-getCategory}{\code{GeoNodeManager$getCategory()}}
 \item \href{#method-GeoNodeManager-getResourceByUUID}{\code{GeoNodeManager$getResourceByUUID()}}
+\item \href{#method-GeoNodeManager-getResourceByAlternate}{\code{GeoNodeManager$getResourceByAlternate()}}
 \item \href{#method-GeoNodeManager-getResource}{\code{GeoNodeManager$getResource()}}
 \item \href{#method-GeoNodeManager-deleteResource}{\code{GeoNodeManager$deleteResource()}}
 \item \href{#method-GeoNodeManager-upload}{\code{GeoNodeManager$upload()}}
@@ -192,6 +194,26 @@ Connects to geoServer
 }
 }
 \if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GeoNodeManager-getExecutionStatus"></a>}}
+\if{latex}{\out{\hypertarget{method-GeoNodeManager-getExecutionStatus}{}}}
+\subsection{Method \code{getExecutionStatus()}}{
+Get execution status
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GeoNodeManager$getExecutionStatus(execution_id)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{execution_id}}{the execution id}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+the status of execution
+}
+}
+\if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GeoNodeManager-getCategories"></a>}}
 \if{latex}{\out{\hypertarget{method-GeoNodeManager-getCategories}{}}}
 \subsection{Method \code{getCategories()}}{
@@ -246,6 +268,26 @@ Get resource by UUID
 \if{html}{\out{<div class="arguments">}}
 \describe{
 \item{\code{uuid}}{resource uuid (or semantic id if used in place of uuid)}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+an object of class \link{list}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GeoNodeManager-getResourceByAlternate"></a>}}
+\if{latex}{\out{\hypertarget{method-GeoNodeManager-getResourceByAlternate}{}}}
+\subsection{Method \code{getResourceByAlternate()}}{
+Get resource by Alternate
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GeoNodeManager$getResourceByAlternate(alternate)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{alternate}}{resource alternate}
 }
 \if{html}{\out{</div>}}
 }

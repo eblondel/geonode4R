@@ -164,7 +164,7 @@ GeoNodeManager <- R6Class("GeoNodeManager",
      
      #'@description Get execution status
      #'@param execution_id the execution id
-     #'@return
+     #'@return the status of execution
      getExecutionStatus = function(execution_id){
        path = sprintf("resource-service/execution-status/%s", execution_id)
        req <- GeoNodeUtils$GET(
@@ -251,6 +251,23 @@ GeoNodeManager <- R6Class("GeoNodeManager",
          user = private$user,
          pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user),
          path = sprintf("resources?page_size=1&page=1&filter{uuid.icontains}=%s", uuid),
+         verbose = self$verbose.debug
+       )
+       outreq <- httr::content(req)
+       if(length(outreq$resources)>0) out <- outreq$resources[[1]]
+       return(out)
+     },
+     
+     #'@description Get resource by Alternate
+     #'@param alternate resource alternate
+     #'@return an object of class \link{list}
+     getResourceByAlternate = function(alternate){
+       out <- NULL
+       req = GeoNodeUtils$GET(
+         url = self$getUrl(),
+         user = private$user,
+         pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user),
+         path = sprintf("resources?page_size=1&page=1&filter{alternate}=geonode:%s", alternate),
          verbose = self$verbose.debug
        )
        outreq <- httr::content(req)
