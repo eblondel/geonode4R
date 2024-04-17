@@ -1,8 +1,9 @@
 pandoc: 3.1.11
 pkgdown: 2.0.8
 pkgdown_sha: ~
-articles: {}
-last_built: 2024-04-16T21:50Z
+articles:
+  geonode4R: geonode4R.html
+last_built: 2024-04-17T14:40Z
 urls:
   reference: https://eblondel.github.io/geonode4R/reference
   article: https://eblondel.github.io/geonode4R/articles
