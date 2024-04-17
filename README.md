@@ -21,6 +21,6 @@ The R package is also documented through its [website](https://eblondel.github.i
 
 ### Sponsors
 
-Many thanks to the following organizations that have provided fundings for strenghtening the ``geonode4R`` package:
+Many thanks to the following organizations that have provided fundings for developing the ``geonode4R`` package:
 
 <a href="https://en.ird.fr/"><img src="https://en.ird.fr/sites/ird_fr/files/2019-08/logo_IRD_2016_BLOC_UK_COUL.png" height=100 width=100/></a>

@@ -1,0 +1,156 @@
+---
+title: geonode4R - R Interface to GeoNode REST API
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{geonode4R - R Interface to GeoNode REST API}
+  %\VignetteEngine{knitr::knitr}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+R Interface to GeoNode REST API – Allows to perform programmatically from R
+
+`geonode4R` is a new package to perform operations of the GeoNode REST API. It supports CRUD operations (Create, Read, Update, Delete) and search on GeoNode resources.
+
+***
+
+If you wish to sponsor geonode4R, do not hesitate to [contact me](mailto:eblondel.pro@gmail.com)
+
+Many thanks to the following organizations that have provided fundings for developing the ``geonode4R`` package:
+
+<a href="https://en.ird.fr/"><img src="https://en.ird.fr/sites/ird_fr/files/2019-08/logo_IRD_2016_BLOC_UK_COUL.png" height=100 width=100/></a>
+
+***
+
+**Table of contents**
+
+[**1. Overview**](#package_overview)<br/>
+[**2. Package status**](#package_status)<br/>
+[**3. Credits**](#package_credits)<br/>
+[**4. User guide**](#user_guide)<br/>
+&nbsp;&nbsp;&nbsp;[4.1 Installation](#install_guide)<br/>
+&nbsp;&nbsp;&nbsp;[4.2 Connect to GeoNode REST API](#GeoNodeManager)<br/>
+&nbsp;&nbsp;&nbsp;[4.3 Create a resource](#GeoNodeManager-create)<br/>
+&nbsp;&nbsp;&nbsp;[4.4 Read a resource](#GeoNodeManager-read)<br/>
+&nbsp;&nbsp;&nbsp;[4.5 Delete a resource](#GeoNodeManager-delete)<br/>
+[**5. Issue reporting**](#package_issues)<br/>
+
+<a name="package_overview"/>
+
+### 1. Overview and vision
+***
+
+Until now, equivalent tools were existing for other programming languages (e.g. Java, Python) but not in R. [geonode4R](https://github.com/eblondel/geonode4R) intends to provide R native interface to the GeoNode REST API, in order to facilitate publication of geographic data resources from R to [GeoNode](https://geonode.org/).
+
+<a name="package_status"/>
+
+### 2. Development status
+***
+
+A first version is being published to CRAN.
+
+The package is at its early stage. It aims to be consolidated together with improvements made on the GeoNode API, and based on feedback of the user community.
+
+<a name="package_credits"/>
+
+### 3. Credits
+***
+
+(c) 2022, Emmanuel Blondel
+
+Package distributed under MIT license.
+
+If you use ``geonode4R``, i would be very grateful if you can add a citation in your published work. By citing ``geonode4R``, beyond acknowledging the work, you contribute to make it more visible and guarantee its growing and sustainability. You can get the preferred citation by running ```citation("geonode4R)``` in R.
+
+You can reference ``geonode4R`` through its DOI: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7703117.svg)](https://doi.org/10.5281/zenodo.7703117)
+
+<a name="user_guide"/>
+
+### 4. User guide
+***
+
+<a name="install_guide"/>
+
+#### 4.1 How to install geonode4R in R
+
+For now, the package can be installed from Github
+```R
+install.packages("remotes")
+```
+Once the devtools package loaded, you can use the install_github to install ``geonode4R`` By default, package will be installed from ``master`` which is the current version in development (likely to be unstable). 
+
+```R
+remotes::install_github("eblondel/geonode4R")
+```
+
+<a name="GeoNodeManager"/>
+
+#### 4.2 Connect to GeoNode REST API 
+
+The main entry point of ``geosapi`` is the `GeoNodeManager``. To configure it, enter the following line, specifying the base ``URL`` of your GeoNode, and your credentials:
+```R
+geonode <- GeoNodeManager$new(
+    url = "http://localhost:8080/geonode", #baseUrl of the Geoserver
+    user = "admin", pwd = "password", #credentials
+    logger = NULL #logger, for info or debugging purpose
+)
+```
+
+By default, the ``geonode4R`` **logger** is deactivated. To enable the logger, specify the level of log you wish as parameter of the above R code. Two logging levels are available:
+
+* ``INFO``: will print the ``geonode4R`` logs. Three types of messages can be distinguished: ``INFO``, ``WARN``, ``ERROR``. The latter is generally associated with a ``stop`` and indicate an blocking error for the R method executed.
+* ``DEBUG`` will print the above ``geonode4R`` logs, and report all logs from HTTP requests performed with ``cURL``
+
+The ``GeoNodeManager`` inherits all methods of resource dependent managers, to provide the users with a single R interface to GeoNode REST API operations.
+
+<a name="GeoNodeManager-create"/>
+
+#### 4.3 Create a resource
+
+To upload a shapefile or another resource, list the resource files (e.g. a list of ESRI Shapefiles), and use the `upload` method of the `GeoNodeManager`.
+
+```R
+files = list.files(system.file("extdata/samples", package = "geonode4R"), pattern = "shapefile1", full.names = T)
+files = files[!endsWith(files, ".zip")]
+created = GEONODE$upload(files)
+```
+
+
+<a name="GeoNodeManager-read"/>
+
+#### 4.4 Read a resource
+
+To get a resource, you can get it based on a dataset identifier ('pk'), or get it by UUID or alternate dataset. The below examples show how to perform these tasks.
+
+```R
+#getResource
+resource = GEONODE$getResource(created$dataset)
+
+#getResourceByUUID
+resource_by_uuid = GEONODE$getResourceByUUID(resource$uuid)
+
+#getResourceByAlternate
+resource_by_alternate = GEONODE$getResourceByAlternate("shapefile1")
+```
+
+<a name="GeoNodeManager-delete"/>
+
+#### 4.5 Delete a resource
+
+To delete a resource, use the `deleteResource` method of the `GeoNodeManager`:
+
+```R
+deleted = GEONODE$deleteResource(created$dataset)
+```
+
+<a name="package_issues"/>
+
+### 5. Issue reporting
+***
+
+Issues can be reported at https://github.com/eblondel/geonode4R/issues
+
