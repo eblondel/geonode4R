@@ -355,7 +355,7 @@ GeoNodeManager <- R6Class("GeoNodeManager",
                finished = !is.null(exec$finished)
              }
              out <- exec
-             out$dataset <- as.integer(basename(exec$output_params$detail_url[[1]]))
+             out$dataset <- as.integer(basename(exec$output_params$resources[[1]]$detail_url))
            }else{
              out$dataset <- as.integer(basename(out$url))
            }
