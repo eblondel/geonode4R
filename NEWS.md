@@ -3,7 +3,7 @@
 
 **Bug fixes**
 
-* [#12](ttps://github.com/eblondel/geonode4R/issues/12) Fail to fetch dataset URL after file upload
+* [#12](https://github.com/eblondel/geonode4R/issues/12) Fail to fetch dataset URL after file upload
 
 ## [geonode4R 0.1](https://cran.r-project.org/package=geonode4R) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geonode4R)
 
