@@ -1,3 +1,6 @@
+## [geonode4R 0.1-2](https://cran.r-project.org/package=geonode4R) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geonode4R)
+
+* Fix Rdoc following CRAN request
 
 ## [geonode4R 0.1-1](https://cran.r-project.org/package=geonode4R) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geonode4R)
 

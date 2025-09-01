@@ -8,8 +8,8 @@
 #' @title A GeoNode version
 #' @description This class allows to grab the GeoNode version.
 #' @keywords GeoNode rest api version
-#' @return Object of \code{\link{R6Class}} for modelling a GeoNode version
-#' @format \code{\link{R6Class}} object.
+#' @return Object of \code{\link[R6]{R6Class}} for modelling a GeoNode version
+#' @format \code{\link[R6]{R6Class}} object.
 #' 
 #' @examples
 #' \dontrun{

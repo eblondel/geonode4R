@@ -6,7 +6,7 @@
 \alias{geonode4R-package}
 \title{geonode4R: Interface to 'GeoNode' REST API}
 \description{
-Provides an interface to the 'GeoNode' API, allowing to upload and publish metadata and data in 'GeoNode'. For more information about the GeoNode API, see \url{https://geonode.org/}.
+Provides an interface to the 'GeoNode' API, allowing to upload and publish metadata and data in 'GeoNode'. For more information about the 'GeoNode' API, see \url{https://geonode.org/}.
 }
 \seealso{
 Useful links:

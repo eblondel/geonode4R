@@ -1,8 +1,8 @@
 Package: geonode4R
 Type: Package
 Title: Interface to 'GeoNode' REST API
-Version: 0.1-1
-Date: 2024-05-20
+Version: 0.1-2
+Date: 2025-09-01
 Authors@R: c(person("Emmanuel", "Blondel", role = c("aut", "cre"), email = "emmanuel.blondel1@gmail.com", comment = c(ORCID = "0000-0002-5870-5762")))
 Maintainer: Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 Description: Provides an interface to the 'GeoNode' API, allowing to upload and publish metadata and data in 'GeoNode'. 
@@ -15,5 +15,5 @@ URL: https://github.com/eblondel/geonode4R, https://eblondel.github.io/geonode4R
 BugReports: https://github.com/eblondel/geonode4R/issues
 Encoding: UTF-8
 LazyLoad: yes
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 VignetteBuilder: knitr

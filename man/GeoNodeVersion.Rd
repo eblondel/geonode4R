@@ -5,10 +5,10 @@
 \alias{GeoNodeVersion}
 \title{A GeoNode version}
 \format{
-\code{\link{R6Class}} object.
+\code{\link[R6]{R6Class}} object.
 }
 \value{
-Object of \code{\link{R6Class}} for modelling a GeoNode version
+Object of \code{\link[R6]{R6Class}} for modelling a GeoNode version
 }
 \description{
 This class allows to grab the GeoNode version.
