@@ -3,7 +3,7 @@ pkgdown: 2.1.3
 pkgdown_sha: ~
 articles:
   geonode4R: geonode4R.html
-last_built: 2025-09-01T10:27Z
+last_built: 2025-09-01T10:34Z
 urls:
   reference: https://eblondel.github.io/geonode4R/reference
   article: https://eblondel.github.io/geonode4R/articles
